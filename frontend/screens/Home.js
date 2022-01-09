@@ -1,5 +1,5 @@
 import React from 'react'
-import { View ,Text, TextInput,StyleSheet, SafeAreaView, ScrollView} from 'react-native';
+import { View ,Text, TextInput,StyleSheet, SafeAreaView, ScrollView, Button} from 'react-native';
 import Buttondwelling from '../components/Buttondwelling';
 import { globalStyles } from '../styles/global.js';
 import LinearFeetSize from '../components/LinearFeetSize';
@@ -29,18 +29,50 @@ import FinishedUnfinishedSF from '../components/FinishedUnfinishedSF';
 import HeatingQuality from '../components/HeatingQuality';
 import CentralAirConditionning from '../components/CentralAirConditionning';
 import ElectricalSystem from '../components/ElectricalSystem';
+import KitchenQuality from '../components/KitchenQuality';
+import HomeFunctionnality from '../components/HomeFunctionnality';
+import Fireplaces from '../components/Fireplaces';
+import FireplaceQuality from '../components/FireplaceQuality';
+import GarageLocation from '../components/GarageLocation';
+import InteriorFinishGarage from '../components/InteriorFinishGarage';
+import SizeGarage from '../components/SizeGarage';
+import GarageQuality from '../components/GarageQuality';
+import GarageCondition from '../components/GarageCondition';
+import PavedDriveway from '../components/PavedDriveway';
+import Area from '../components/Area';
+import TypeOfSale from '../components/TypeOfSale';
+import ConditionOfSale from '../components/ConditionOfSale';
+import RestOfTheFields from '../components/RestOfTheFields';
+import { Formik } from 'formik';
 
 const Home = ({navigation}) => {
+  const email=""; 
+  state = {
+    name: "",
+   }
+
+    handleCallback = (childData) =>{
+    setState({name: childData})
+     }
    return (
    <SafeAreaView>
     <ScrollView>
    
-    <View>
-       
+   
+      
+    <Formik
+    
+        initialValues={{ email: '', password: '' }}
+        onSubmit={(values) => {
+          console.log(values);
+        }}
+      >
+        {({  handleSubmit, values }) => (
+          <View>
     <Text style={styles.baseText}>The type of dwelling involved in the sale</Text>
-    <Buttondwelling/>
+    <Buttondwelling />
     <Text style={styles.baseText}>Put the linear feet of street</Text>
-    <LinearFeetSize />
+    <LinearFeetSize  />
     <Text style={styles.baseText}>General shape of the property</Text>
     <ShapeProperty/>
     <Text style={styles.baseText}>Flatness of the property</Text>
@@ -90,9 +122,40 @@ const Home = ({navigation}) => {
      <CentralAirConditionning/>
      <Text style={styles.baseText}>Electrical system </Text>
      <ElectricalSystem/>
+     <Text style={styles.baseText}>Kitchen quality</Text>
+     <KitchenQuality/>
+     <Text style={styles.baseText}>Home functionnality</Text>
+     <HomeFunctionnality/>
+     <Fireplaces/>
+     <Text style={styles.baseText}>Fireplace quality</Text>
+     <FireplaceQuality/>
+     <Text style={styles.baseText}>garage location</Text>
+     <GarageLocation/>
+     <Text style={styles.baseText}>Interior finish of the garage</Text>
+     <InteriorFinishGarage/>
+     <SizeGarage/>
+     <Text style={styles.baseText}>Garage quality</Text>
+     <GarageQuality/>
+     <Text style={styles.baseText}>Garage condition</Text>
+    <GarageCondition/>
+    <Text style={styles.baseText}>Paved driveway</Text>
+    <PavedDriveway/>
+    <Area/>
+    <Text style={styles.baseText}> Type of sale</Text>
+    <TypeOfSale/>
+    <Text style={styles.baseText}> COndition of sale</Text>
+    <ConditionOfSale/>
+    <RestOfTheFields/>
 
 
+    <Button onPress={handleSubmit} title="Submit" />
     </View>
+        )}
+
+
+    
+    </Formik>
+
     </ScrollView> 
     </SafeAreaView>
     );

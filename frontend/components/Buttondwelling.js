@@ -1,13 +1,22 @@
 import * as React from 'react';
-import { View ,Text,SafeAreaView, ScrollView } from 'react-native';
+import { View ,Text,SafeAreaView, ScrollView,Button } from 'react-native';
 import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button'
 
 export default class Buttondwelling extends React.Component {
+  
   onSelect(index, value){
+   
     this.setState({
-      text: `Selected index: ${index} , value: ${value}`
+      
     })
   }
+
+  onTrigger = (event) => {
+    this.props.parentCallback(event.target.myname.value);
+    event.preventDefault();
+}
+
+
   
   render(){
     return(
@@ -17,8 +26,9 @@ export default class Buttondwelling extends React.Component {
       
         <RadioGroup
           onSelect = {(index, value) => this.onSelect(index, value)}
+          onSubmit = {this.onTrigger}
         >
-          <RadioButton value={'item1'} >
+          <RadioButton value={'item1'} name="myname" >
             <Text>1-STORY 1946 & NEWER ALL STYLES</Text>
           </RadioButton>
   
@@ -81,11 +91,13 @@ export default class Buttondwelling extends React.Component {
           <RadioButton value={'item16'}>
             <Text>2 FAMILY CONVERSION - ALL STYLES AND AGES</Text>
           </RadioButton>
-
-        </RadioGroup>
         
+        </RadioGroup>
+        <Button title = "submit"  />
+                
                
       </View>
+      
       </ScrollView>
       </SafeAreaView>
     );
