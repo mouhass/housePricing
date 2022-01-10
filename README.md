@@ -13,15 +13,15 @@ next you need to start the flask server and .... (react native)
 
 ### Flask server
 
-1. install needed requirements for this project
+1. to install needed requirements for this project
 ```bash
 pip install -r requirements.txt
 ```
-2. run the server (make sure you in the right directory)
+2. to run the server (make sure you are in the right directory)
 ```bash
 app.py
 ```
-now your flask server is app and running
+now your flask server is up and running
 
 
 
