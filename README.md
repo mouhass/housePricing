@@ -1,4 +1,4 @@
-# MyHou$e
+# EasyHou$ing
 
 ## Description
  MyHou$e is a mobile application that helps its users decide the best house to buy by predicting real estate prices based on diffrent features provided to the app . The prediction is done by a machine learning model deployed on a Flask server , the front end is developed using react native . 
